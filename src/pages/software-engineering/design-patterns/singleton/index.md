@@ -74,3 +74,28 @@ $obj2 = Singleton::getInstance();
 
 ```
 
+## Singleton in JavaScript
+
+The Singleton object is implemented as an immediate anonymous function. The sharedInstance method returns the one and only instance of the object while maintaining a private reference to it.
+
+```javascript
+var Singleton = (function() {
+  var instance;
+
+  function createInstance() {
+    var object = new Object("I am the instance");
+    return object;
+  }
+
+  return {
+    sharedInstance: function() {
+      if (!instance) {
+        instance = createInstance();
+      }
+      return instance;
+    }
+  };
+})();
+
+var instance1 = Singleton.sharedInstance();
+```
